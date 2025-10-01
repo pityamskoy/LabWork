@@ -13,39 +13,75 @@ class Calculator:
 
     def __init__(self):
         print("Please, enter a math expression. Enter '0 0' to end the program.")
-        self.set_input_string()
-        self.execute()
-
-    def set_input_string(self) -> None:
         string: str = input()
 
+        self.set_input_string(string)
+        self.execute()
+
+    def set_input_string(self, string: str) -> None:
         if string == '0 0':
             self._input_string = string
             return
 
-        if not self.is_input_string_correct(string):
-            raise ValueError("The expression contains not mathematical symbols, "
-                             "including any merger of operators, or parentheses set incorrect.")
+        def is_correct() -> None:
+            if not self.is_input_string_correct(string):
+                print("The expression contains not mathematical symbols, "
+                      "including any merger of operators, or parentheses set incorrect.")
+                raise ValueError
 
-        if not self.is_math_expression_correct(string):
-            raise ValueError("The expression has an operator either in the end "
-                             "or at the beginning, which differs from '+' and '-'.")
+            if not self.is_math_expression_correct(string):
+                print("The expression has an operator either in the end "
+                      "or at the beginning, which differs from '+' and '-'.")
+                raise ValueError
 
-        string = self.remove_spaces(string)
-        self._input_string = string
+        flag: bool = True
+
+        while flag:
+            try:
+                is_correct()
+
+                string = self.remove_spaces(string)
+                self._input_string = string
+                flag = False
+            except ValueError:
+                print("Please, enter a correct math expression")
+                string = input()
 
     def get_input_string(self) -> str:
         return self._input_string
 
     """
-    Execute is the main method in the class. It runs right after set_input_string.
-    The main functional is splitting parentheses in proper way and counting it.
-    Finally, it return a result of an expression.
-    
-    This method works until '0 0' is given as the input string.
+    Execute method is the starter of calculating, which is necessary for tracing errors.
     """
 
     def execute(self) -> None:
+        flag = True
+
+        while flag:
+            try:
+                self.calculating()
+                flag = False
+            except ValueError:
+                print("The given math expression is incorrect.")
+
+                string: str = input()
+                self.set_input_string(string)
+            except ZeroDivisionError:
+                print("Entered math expression contains division by zero or "
+                      "exponentiation of zero to unnatural degree.")
+
+                string : str = input()
+                self.set_input_string(string)
+
+
+    """
+    Calculating is the main method in the class, which splits parentheses in proper way
+    and counts it. Finally, it prints a result of a math expression.
+
+    This method works until '0 0' is given as the input string.
+    """
+
+    def calculating(self) -> None:
         string: str = self.get_input_string()
 
         while string != "0 0":
@@ -68,12 +104,14 @@ class Calculator:
                     result: str = self.summation(substring[1:-1])
                     string = string[:index] + result + string[len(substring) + index:]
                 else:
-                    raise ValueError("The given math expression is incorrect.")
+                    print("The given math expression is incorrect.")
+                    raise ValueError
 
             string = self.summation(string)
             print(string)
 
-            self.set_input_string()
+            string = input()
+            self.set_input_string(string)
             string = self.get_input_string()
 
     """
@@ -81,7 +119,7 @@ class Calculator:
     It is necessary because the length in symbols is differ.
     For example, '2' is one symbol in a string type and '2.0' in float, what is 3 symbols.
     
-    operation_length is the exact number of symbols in an operation.
+    Operation_length is the exact number of symbols in an operation.
     """
 
     @staticmethod
@@ -134,7 +172,7 @@ class Calculator:
         return True
 
     """
-    This method checks if the input string is correct.
+    This method checks if an input string is correct.
     """
 
     @staticmethod
