@@ -23,7 +23,7 @@ The result:
 The presumption:                                                                                                                                                                                                                                                  
     1. An input string contains only                                                                                                         
         1) any digits in the decimal number system.                                                                                                         
-        2) '+', '-', '*', '/', '//', '**' operations.                                                                                                         
+        2) '+', '-', '*', '/', '//' and exponentiation operations.                                                                                                         
         3) spaces in any quantity.                                                                                                         
         4) parentheses ('(' and ')'), which should be placed correctly. It means that
             '(' always has appropriate ')'. Also number of '(' is equivalent to ')', and ')'
