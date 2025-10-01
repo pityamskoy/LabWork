@@ -2,11 +2,9 @@ Laboratory work №1
                                                                                                                      
 Done by Кекишев Андрей Сергеевич, группа "М80-106БВ-25"                                                                  
                                                                                                          
-The task:                                             
-                                                                                                 
+The task:
     (M1) Make calculator, which takes a string of symbols (digits with operations
     in infix form) as an input and executes the following steps:                                                                                            
-                                                                                                                                                 
     1. It checks if a string is correct.                                                                                                                           
     2.1. If an input string is incorrect the calculator throw an exception.                                                                                         
     2.2. If an input string is correct the calculator counts the whole math expression.                                                                             
