@@ -514,4 +514,4 @@ class Calculator:
         if len(string) >= 2:
             if string[0] == "-" and string[1] == "0":
                 string = string[1:]
-        return str(float(string))
+        return str(round(float(string), 5))

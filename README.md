@@ -29,7 +29,10 @@ The presumption:
             '(' always has appropriate ')'. Also number of '(' is equivalent to ')', and ')'
             isn't placed before '('.                                                                                                         
     2.  Any merging of operations in an input string is prohibited.
-    3.Any merging of parentheses and digits are also prohibited.                                                                                                         
+    3. Any merging of parentheses and digits are also prohibited.                                                                                                         
     4. Division by zero is prohibited. It means that 0 to the negative degree is not allowed too.                                                                         
     5. 0**0 is not allowed.                                                                                                         
-   
+    6. Float numbers can be taken as an input.                                                                                     
+    6.1 You are able to enter any acceptable fractional part of a number.                                                                                                       
+    6.2 Only 5 digits after point will be handled due to problem with storing float numbers in computer memory.
+    6.3 Fractional part on a float number will be rounded to 5 digits after point according to math rules.                                                                                                              
