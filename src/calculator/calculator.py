@@ -3,7 +3,7 @@ import string as chars
 
 """
 This class calculates any math expression, which is taken as input.
-It supports only integer numbers.
+It supports float and integer numbers.
 """
 
 
