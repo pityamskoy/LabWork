@@ -34,5 +34,5 @@ The presumption:
     5. 0**0 is not allowed.                                                                                                         
     6. Float numbers can be taken as an input.                                                                                     
     6.1 You are able to enter any acceptable fractional part of a number.                                                                                                       
-    6.2 Only 5 digits after point will be handled due to problem with storing float numbers in computer memory.
-    6.3 Fractional part on a float number will be rounded to 5 digits after point according to math rules.                                                                                                              
+    6.2 Only 5 digits after point will be handled due to problem with storing float numbers in computer memory.                                                                                                                                                                 
+    6.3 Fractional part of a float number will be rounded to 5 digits after point according to math rules.                                                                                                              
