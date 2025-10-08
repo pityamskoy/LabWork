@@ -36,4 +36,7 @@ The presumption:
     6.1 You are able to enter any acceptable fractional part of a number.                                                                                                       
     6.2 Only 5 digits after point will be handled due to problem with storing float numbers in computer memory.                                                                                                                                                                 
     6.3 Fractional part of a float number will be rounded to 5 digits after point according to math rules.                                                                                                                                                                 
-    7. Result is only float number. Even if the input string is '5+5', the result is '10.0'.
+    7. Result is only float number. Even if the input string is '5+5', the result is '10.0'.                                                                                                                                                                                     
+    8. Numbers can be entered with spaces. Example - "29 07 84". The application will recognize this string as "290784"                                                                                                                                                 
+    9. It's guaranteed that an input string does not contain numbers with redundant zeros. However, if there are such numbers program will work correctly, and
+it will read them as normal numbers without redundant zeros.
